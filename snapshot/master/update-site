@@ -1,12 +1,12 @@
 wikipedia-dev.jar;https://josm.gitlab.io/wikipedia/snapshot/master/wikipedia.jar
-	Created-By: 1.8.0_151 (Oracle Corporation)
+	Created-By: 1.8.0_171 (Oracle Corporation)
 	Gradle-Version: 4.9
 	Groovy-Version: 2.4.12
 	Plugin-Class: org.wikipedia.WikipediaPlugin
-	Plugin-Date: 2018-08-02T18:39:36+0000
+	Plugin-Date: 2018-08-02T23:33:37+0000
 	Plugin-Description: Simplifies linking OSM objects to Wikipedia articles and Wikidata items
 	Plugin-Mainversion: 13927
-	Plugin-Version: v1.0.2-22-g0edc4dd
+	Plugin-Version: v1.0.2-24-gbd70707
 	Plugin-Early: false
 	Plugin-Canloadatruntime: true
 	13597_Plugin-Url: v1.0.1;https://github.com/JOSM/wikipedia/releases/download/v1.0.1/wikipedia.jar
@@ -15,20 +15,19 @@ wikipedia-dev.jar;https://josm.gitlab.io/wikipedia/snapshot/master/wikipedia.jar
 	cs_Plugin-Description: Zjednodušuje spojování objektů OSM a článků na Wikipedii a položek Wikidat
 	hu_Plugin-Description: Egyszerűsíti az OSM objektumok összekapcsolását Wikipédia cikkekkel és Wikidata elemekkel
 	id_Plugin-Description: Menyederhanakan tautan objek OSM ke artikel Wikipedia dan Wikidata
+	pl_Plugin-Description: Upraszcza odnoszenie obiektów OSM do artykułów na Wikipedii i serwisu Wikidata
 	en_GB_Plugin-Description: Simplifies linking OSM objects to Wikipedia articles and Wikidata items
-	zh_CN_Plugin-Description: 简化链接OSM对象至维基百科条目和维基数据项目
+	el_Plugin-Description: Απλοποίηση σύνδεσης αντικειμένων OSM με άρθρα Wikipedia και αντικείμενα του Wikidata
 	es_Plugin-Description: Simplifica la vinculación de objetos de OSM a artículos de Wikipedia y elementos de Wikidata
 	sk_Plugin-Description: Zjednodušuje prepojenie OSM objektov na články Wikipedie a položky Wikidata
 	fr_Plugin-Description: Simplifie la liaison entre les éléments OSM et les articles Wikipedia ou les entrées Wikidata
 	ast_Plugin-Description: Simplifica enllazar oxetos d''OSM con artículos de Wikipedia y elementos de Wikidata
 	uk_Plugin-Description: Спрощує створення посилань з обʼєктів OSM на статті у Вікіпедії та на Вікідані
-	be_Plugin-Description: Спрашчае звязванне абʼектаў OSM з артыкуламі Вікіпедыі і элементамі вікідадзеных
 	it_Plugin-Description: Semplifica il collegamento di oggetti OSM con gli articoli di Wikipedia e gli elementi di Wikidata
 	ru_Plugin-Description: Упрощает связывание объектов OSM со статьями Википедии и элементами Викиданных
 	zh_TW_Plugin-Description: 簡化連結OSM物件到維基百科條目和維基數據項目
 	nl_Plugin-Description: Vereenvoudigt het koppelen van objecten van OSM aan artikelen van Wikipedia en items van Wikidata
 	da_Plugin-Description: Forenkler at knytte OSM objekter til Wikipedia artikler og Wikidata emner
-	pt_BR_Plugin-Description: Simplifica vincular objetos do OSM a artigos da Wikipedia e itens Wikidata
 	de_Plugin-Description: Vereinfacht das Verlinken von OSM-Objekten zu Wikipedia-Artikeln und Wikidata-Einträgen
 	en_Plugin-Description: Simplifies linking OSM objects to Wikipedia articles and Wikidata items
 	Author: floscher <incoming+JOSM/wikipedia@incoming.gitlab.com>, simon04
