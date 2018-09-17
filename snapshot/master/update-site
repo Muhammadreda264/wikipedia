@@ -3,12 +3,13 @@ wikipedia-dev.jar;https://josm.gitlab.io/wikipedia/snapshot/master/wikipedia.jar
 	Gradle-Version: 4.9
 	Groovy-Version: 2.4.12
 	Plugin-Class: org.wikipedia.WikipediaPlugin
-	Plugin-Date: 2018-09-17T18:57:42+0000
+	Plugin-Date: 2018-09-17T19:05:53+0000
 	Plugin-Description: Simplifies linking OSM objects to Wikipedia articles and Wikidata items
 	Plugin-Mainversion: 14149
-	Plugin-Version: v1.1.0-5-g6cfeb92
+	Plugin-Version: v1.1.0-6-g6efc782
 	Plugin-Early: false
 	Plugin-Canloadatruntime: true
+	13927_Plugin-Url: v1.1.0;https://github.com/JOSM/wikipedia/releases/download/v1.1.0/wikipedia.jar
 	13597_Plugin-Url: v1.0.1;https://github.com/JOSM/wikipedia/releases/download/v1.0.1/wikipedia.jar
 	12900_Plugin-Url: 34109;https://svn.openstreetmap.org/applications/editors/josm/dist/wikipedia.jar?p=34113
 	12878_Plugin-Url: 33635;https://svn.openstreetmap.org/applications/editors/josm/dist/wikipedia.jar?p=33636
@@ -28,6 +29,7 @@ wikipedia-dev.jar;https://josm.gitlab.io/wikipedia/snapshot/master/wikipedia.jar
 	zh_TW_Plugin-Description: 簡化連結OSM物件到維基百科條目和維基數據項目
 	nl_Plugin-Description: Vereenvoudigt het koppelen van objecten van OSM aan artikelen van Wikipedia en items van Wikidata
 	da_Plugin-Description: Forenkler at knytte OSM objekter til Wikipedia artikler og Wikidata emner
+	pt_BR_Plugin-Description: Simplifica vincular objetos do OSM a artigos da Wikipedia e itens Wikidata
 	de_Plugin-Description: Vereinfacht das Verlinken von OSM-Objekten zu Wikipedia-Artikeln und Wikidata-Einträgen
 	en_Plugin-Description: Simplifies linking OSM objects to Wikipedia articles and Wikidata items
 	Author: floscher <incoming+JOSM/wikipedia@incoming.gitlab.com>, simon04
