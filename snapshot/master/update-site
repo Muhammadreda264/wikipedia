@@ -1,12 +1,12 @@
 wikipedia-dev.jar;https://josm.gitlab.io/wikipedia/snapshot/master/wikipedia.jar
 	Created-By: 1.8.0_181 (Oracle Corporation)
-	Gradle-Version: 4.9
-	Groovy-Version: 2.4.12
+	Gradle-Version: 5.0
+	Groovy-Version: 2.5.4
 	Plugin-Class: org.wikipedia.WikipediaPlugin
-	Plugin-Date: 2018-12-09T22:36:40+0000
+	Plugin-Date: 2018-12-11T19:40:20+0000
 	Plugin-Description: Simplifies linking OSM objects to Wikipedia articles and Wikidata items
 	Plugin-Mainversion: 14149
-	Plugin-Version: v1.1.1-11-gcde99cb
+	Plugin-Version: v1.1.1-12-gaf4f04c
 	Plugin-Early: false
 	Plugin-Canloadatruntime: true
 	13927_Plugin-Url: v1.1.0;https://github.com/JOSM/wikipedia/releases/download/v1.1.0/wikipedia.jar
