@@ -50,6 +50,7 @@ public class WikidataInfoToggleDialog extends ToggleDialog {
     private final WikidataInfoLabelPanel labelTab = new WikidataInfoLabelPanel();
     private final WikidataInfoClaimPanel statementTab = new WikidataInfoClaimPanel();
     private final WikidataInfoSitelinkPanel linkTab = new WikidataInfoSitelinkPanel();
+    private final WikidataInfoComparePanel comparisonTab=new WikidataInfoComparePanel();
 
     private final DataSelectionListener selectionListener = it -> updateDisplayedItem();
     private final DataSetListener datasetListener = new DataSetListenerAdapter(it -> {
@@ -92,6 +93,7 @@ public class WikidataInfoToggleDialog extends ToggleDialog {
         tabs.add(I18n.tr("Statements"), statementTab);
         tabs.add(I18n.tr("Labels"), labelTab);
         tabs.add(I18n.tr("Links"), linkTab);
+        tabs.add(I18n.tr("Comparsion"),comparisonTab);
 
         // Set up listeners
         this.wikiDialog.list.addListSelectionListener(event -> updateDisplayedItem());
@@ -167,6 +169,7 @@ public class WikidataInfoToggleDialog extends ToggleDialog {
             labelTab.downloadLabelsFor(qId);
             statementTab.downloadStatementsFor(qId);
             linkTab.downloadSitelinksFor(qId);
+            comparisonTab.downloadLabelsFor(qId);
 
             mainPanel.add(infoPanel);
             mainPanel.revalidate();

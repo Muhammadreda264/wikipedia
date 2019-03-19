@@ -1,19 +1,6 @@
 package org.wikipedia.gui;
 
-import java.awt.BorderLayout;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
+
 import org.openstreetmap.josm.gui.Notification;
 import org.openstreetmap.josm.tools.I18n;
 import org.openstreetmap.josm.tools.Logging;
@@ -22,36 +9,42 @@ import org.wikipedia.api.ApiQueryClient;
 import org.wikipedia.api.wikidata_action.WikidataActionApiQuery;
 import org.wikipedia.api.wikidata_action.json.WbgetentitiesResult;
 
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import java.awt.*;
+import java.io.IOException;
+import java.util.*;
+import java.util.List;
+
 /**
- * Panel displaying the labels for a Wikidata item
+ * Panel displaying the comparison between Wikidata item and OSM POI
  */
-class WikidataInfoLabelPanel extends ProgressJPanel {
-    private final LabelTableModel tableModel = new LabelTableModel(this);
+public class WikidataInfoComparePanel extends ProgressJPanel {
+    private final WikidataInfoComparePanel.ComparisonTableModel tableModel = new WikidataInfoComparePanel.ComparisonTableModel(this);
     private final JTable table = new JTable(tableModel);
 
-    WikidataInfoLabelPanel() {
+    WikidataInfoComparePanel() {
         add(new JScrollPane(table), BorderLayout.CENTER);
     }
 
     void downloadLabelsFor(final String qId) {
-        tableModel.downloadLabelsFor(qId);
+        tableModel.downloadCompaarisonFor(qId);
     }
 
-    public static class LabelTableModel extends AbstractTableModel {
-        private final WikidataInfoLabelPanel parent;
+    public static class ComparisonTableModel extends AbstractTableModel {
+        private final WikidataInfoComparePanel parent;
         private String qIdBeingDownloaded;
         private final List<TableRow> rows = new ArrayList<>();
 
-        LabelTableModel(final WikidataInfoLabelPanel parent) {
+        ComparisonTableModel(final WikidataInfoComparePanel parent) {
             this.parent = parent;
         }
-
-        void downloadLabelsFor(final String qId) {
+        void downloadCompaarisonFor(final String qId) {
             qIdBeingDownloaded = qId;
 
             new Thread(() -> {
                 try {
-                    parent.showProgress(I18n.tr("Download labels for {0}…", qId));
+                    parent.showProgress(I18n.tr("Download comparison for {0}…", qId));
                     rows.clear();
                     parent.table.revalidate();
                     parent.revalidate();
@@ -75,11 +68,9 @@ class WikidataInfoLabelPanel extends ProgressJPanel {
                                 langCodes.addAll(aliases.keySet());
                                 langCodes.stream().sorted().forEach(langCode -> {
                                     this.rows.add(new TableRow(
-                                        langCode,
-                                        languages.get(langCode),
-                                        labels.get(langCode),
-                                        descriptions.get(langCode),
-                                        aliases.get(langCode)
+                                        "1",
+                                        "2"
+                                        ,"3","4"
                                     ));
                                 });
                             });
@@ -91,6 +82,7 @@ class WikidataInfoLabelPanel extends ProgressJPanel {
                 }
                 parent.hideProgress();
             }).start();
+
         }
 
         @Override
@@ -100,51 +92,49 @@ class WikidataInfoLabelPanel extends ProgressJPanel {
 
         @Override
         public int getColumnCount() {
-            return 5;
+            return 4;
         }
 
         @Override
         public Object getValueAt(int rowIndex, int columnIndex) {
             switch (columnIndex) {
-                case 0: return rows.get(rowIndex).langCode;
-                case 1: return rows.get(rowIndex).language;
-                case 2: return rows.get(rowIndex).label;
-                case 3: return rows.get(rowIndex).description;
-                case 4:
-                default: return String.join(", ", rows.get(rowIndex).aliases);
+                case 0: return rows.get(rowIndex).WikidataProperty;
+                case 1: return rows.get(rowIndex).wikidataValue;
+                case 2: return rows.get(rowIndex).OSMTag;
+                case 3: return rows.get(rowIndex).OSMValue;
+                default:return "";
             }
         }
 
         @Override
         public String getColumnName(int column) {
             switch (column) {
-                case 0: return I18n.tr("language code");
-                case 1: return I18n.tr("language");
-                case 2: return I18n.tr("label");
-                case 3: return I18n.tr("description");
-                case 4:
-                default: return I18n.tr("aliases");
+                case 0: return I18n.tr("Wikidata Property");
+                case 1: return I18n.tr("Wikidata Value");
+                case 2: return I18n.tr("OSMTag");
+                case 3: return I18n.tr("OSMValue");
+                default:return "";
+
             }
         }
 
         @Override
         public boolean isCellEditable(int rowIndex, int columnIndex) {
-            return columnIndex >= 3;
+            return false;
         }
 
         private static class TableRow {
-            private final String langCode;
-            private final String language;
-            private final String label;
-            private final String description;
-            private final Collection<String> aliases;
+            private final String WikidataProperty;
+            private final String wikidataValue;
+            private final String OSMTag;
+            private final String OSMValue;
 
-            TableRow(final String langCode, final String language, final String label, final String description, final Collection<String> aliases) {
-                this.langCode = Objects.requireNonNull(langCode);
-                this.language = language == null ? langCode : language;
-                this.label = label == null ? "" : label;
-                this.description = description == null ? "" : description;
-                this.aliases = aliases == null ? new ArrayList<>() : aliases;
+
+            TableRow(final String WikidataProperty, final String wikidataValue, final String OSMTag, final String OSMValue) {
+                this.WikidataProperty = WikidataProperty ==null? "":WikidataProperty;
+                this.wikidataValue = wikidataValue ==null? "":wikidataValue;
+                this.OSMTag = OSMTag == null ? "" : OSMTag;
+                this.OSMValue = OSMValue == null ? "" : OSMValue;
             }
         }
     }

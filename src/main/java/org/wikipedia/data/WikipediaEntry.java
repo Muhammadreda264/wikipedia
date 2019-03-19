@@ -17,6 +17,7 @@ public class WikipediaEntry implements Comparable<WikipediaEntry> {
     public final LatLon coordinate;
     private Boolean wiwosmStatus;
 
+
     public WikipediaEntry(String lang, String article) {
         this(lang, article, null);
     }

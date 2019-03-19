@@ -15,6 +15,7 @@ public class WikidataEntry extends WikipediaEntry {
     public final String label;
     public final String description;
 
+
     public WikidataEntry(String id, String label, LatLon coordinate, String description) {
         super("wikidata", id, coordinate);
         this.label = label;
